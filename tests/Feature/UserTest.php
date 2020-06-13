@@ -27,6 +27,11 @@ class UserTest extends TestCase
            'password'=> bcrypt(12345678) 
        ]);
 
-       //$this->seeInDatabase('users',['name'=>'Admin User']);
+       $this->assertDatabaseMissing('users',['name'=>'Admin User']);
    }
+   public function testDatabase()
+    {
+    // Make call to application...
+        $this->assertDatabaseMissing('users', ['email' => 'sally@example.com']);
+    }
 }
