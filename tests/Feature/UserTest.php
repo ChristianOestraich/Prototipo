@@ -21,11 +21,11 @@ class UserTest extends TestCase
     }
     public function test_create_user()
    {
-       \App\User::create([
+       /*\App\User::create([
            'name'=>'Admin User',
            'email'=>'admin@admin.com',
            'password'=> bcrypt(12345678) 
-       ]);
+       ]);*/
 
        $this->assertDatabaseMissing('users',['name'=>'Admin User']);
        $this->assertDatabaseMissing('users', ['email' => 'sally@example.com']);
