@@ -29,6 +29,7 @@ class UserTest extends TestCase
 
        $this->assertDatabaseMissing('users',['name'=>'Admin User']);
        $this->assertDatabaseMissing('users', ['email' => 'sally@example.com']);
+       $this->assertDatabaseMissing('users', ['password' => '123456789']);
    }
    
 }
