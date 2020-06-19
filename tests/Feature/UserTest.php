@@ -43,4 +43,11 @@ class UserTest extends TestCase
 
         $response->assertSeeInOrder(['Laravel']);
     }
+    public function testloginPageLoadsCorrectly() {
+
+        $response = $this->get("/login");
+        
+        $response->assertSeeInOrder(['E-Mail Address']);
+    }
+    
 }
