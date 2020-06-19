@@ -4,6 +4,8 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -13,18 +15,32 @@ class UserTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+
+    public function testHttpInicial()
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
+
     }
-    
-   /* public function test_create_user()
-   {
-       $this->assertDatabaseMissing('users',['name'=>'Admin']);
-       $this->assertDatabaseMissing('users', ['email' => 'sally@example.com']);
-       $this->assertDatabaseMissing('users', ['password' => '123456789']);
-   }*/
-   
+    public function testHttpLogin()
+    {
+        $response = $this->get('/login');
+
+        $response->assertStatus(200);
+
+    }
+    public function testHttpRegister()
+    {
+        $response = $this->get('/register');
+
+        $response->assertStatus(200);
+
+    }
+    public function testLaravel()
+    {
+        $response = $this->get('/');
+
+        $response->assertSeeInOrder(['Laravel']);
+    }
 }
